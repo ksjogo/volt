@@ -1,0 +1,43 @@
+name: "app"
+type: "nodejs:6.9"
+dependencies:
+  nodejs:
+    #yarn: "*"
+    pm2: "*"
+
+disk: 2048
+
+hooks:
+  build: |
+    # fake lfs support
+    echo "Starting git-lfs."
+    wget -q https://github.com/git-lfs/git-lfs/releases/download/v1.5.4/git-lfs-linux-amd64-1.5.4.tar.gz
+    tar -xzf git-lfs*
+    git init -q
+    git config user.email "jogo@kronberger-spiele.de"
+    git config user.name "Johannes Goslar"
+    git add lfs .gitattributes
+    git commit -qm "that's not nice but works"
+    git remote add origin https://github.com/ksjogo/volt.git
+    ./git-lfs*/git-lfs fetch > /dev/null
+    ./git-lfs*/git-lfs checkout > /dev/null
+    rm -rf .git .gitattributes git-lfs*
+    echo "Finished git-lfs."
+    # all lfs in here now
+    echo "Compiling r3r"
+    cd node_modules/react-three-renderer
+    npm install > /dev/null
+    npm run-script compile > /dev/null
+    echo "Compiled r3r"
+
+mounts:
+  "/run": "shared:files/run"
+
+web:
+  commands:
+    start: "PM2_HOME=/app/run pm2 start server.js --no-daemon"
+  locations:
+    "/static":
+      passthru: false
+      root: "static"
+      allow: true
