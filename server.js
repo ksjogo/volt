@@ -19,7 +19,7 @@ app.use(express.static('static/'));
 
 // Load the Platform.sh configuration
 var psh = require("platformsh").config();
-var port = psh.port || 3000;
+var port = psh && psh.port || 3000;
 
 app.listen(port, function (err) {
     if (err)
