@@ -1,14 +1,16 @@
-import * as React from 'react';
-import * as _ from 'lodash';
-import * as async from 'async';
-import * as React3 from 'react-three-renderer';
-import * as THREE from 'three';
-import {observable} from 'mobx';
-import {observer} from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
+import * as React from "react";
+import * as _ from "lodash";
+import * as async from "async";
+import * as React3 from "react-three-renderer";
+import * as THREE from "three";
+import {observable} from "mobx";
+import {observer} from "mobx-react";
+import DevTools from "mobx-react-devtools";
 
-import GameState from './GameState';
-import Robot from './Robot';
+import * as style from "./style/variables";
+
+import GameState from "./GameState";
+import Robot from "./Robot";
 
 export interface Test2Props {
     game: GameState
@@ -17,7 +19,7 @@ export interface Test2Props {
 @observer
 export default class View2 extends React.Component<Test2Props, {}> {
 
-    cameraPosition : THREE.Vector3;
+    cameraPosition: THREE.Vector3;
 
     constructor(props, context) {
         super(props, context);
@@ -30,8 +32,8 @@ export default class View2 extends React.Component<Test2Props, {}> {
     }
 
     render() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        let width = window.innerWidth,
+        height = window.innerHeight - style.headerHeight;
         return (
             <React3
                 mainCamera="camera"

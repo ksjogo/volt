@@ -1,12 +1,12 @@
-import * as React from 'react';
-import GameState from './GameState';
-import {observer} from 'mobx-react';
+import * as React from "react";
+import GameState from "./GameState";
+import {observer} from "mobx-react";
 
 @observer
 export default class Robot extends React.Component<{
     game: GameState
-},{}> {
-    render(){
+}, {}> {
+    render() {
         return <mesh
                    rotation={this.props.game.cubeRotation}
         >

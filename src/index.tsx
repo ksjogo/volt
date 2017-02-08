@@ -1,11 +1,15 @@
-import { AppContainer } from 'react-hot-loader';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
-import GameState from './GameState';
+import { AppContainer } from "react-hot-loader";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import App from "./App";
+import GameState from "./GameState";
+import * as injectTapEventPlugin from "react-tap-event-plugin";
 
 const gameState = new GameState();
-const rootEl = document.getElementById('root');
+const rootEl = document.getElementById("root");
+
+injectTapEventPlugin();
+
 ReactDOM.render(
     <AppContainer>
         <App game={gameState} />
@@ -19,8 +23,8 @@ declare global {
 }
 
 if (module.hot) {
-    module.hot.accept('./App', () => {
-        const NextApp = require('./App').default;
+    module.hot.accept("./App", () => {
+        const NextApp = require("./App").default;
         ReactDOM.render(
             <AppContainer>
                 <NextApp game={gameState}/>

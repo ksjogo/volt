@@ -1,6 +1,11 @@
-import * as React from 'react';
-import View2 from './View2';
+import * as React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import {AppBar} from "material-ui";
+
+import View2 from "./View2";
 import GameState from "./GameState";
+
+import "./style/style.css";
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -11,13 +16,16 @@ import GameState from "./GameState";
 
 export default class App extends React.Component<{
     game: GameState
-},{
+}, {
 }> {
     render() {
         return (
-            <div>
+                <MuiThemeProvider>
+                <div>
+                <AppBar title="Volt Game" />
                 <View2 game={this.props.game} />
-            </div>
+                </div>
+                </MuiThemeProvider>
         );
     }
 }
