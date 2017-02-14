@@ -1,7 +1,12 @@
 import {observable} from "mobx";
 import * as THREE from "three";
 
-export default class State {
+export default class AppStore {
+    constructor (apolloClient) {
+    }
+
+
+
     @observable cubeRotation = new THREE.Euler(0, 0, 0);
 
     tick() {

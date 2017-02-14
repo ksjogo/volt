@@ -10,10 +10,12 @@ fs.readdirSync('node_modules')
     .forEach(function(mod) {
         nodeModules[mod] = 'commonjs ' + mod;
     });
-nodeModules["../../webpack.client"] = "require('../webpack.client');";
 
 module.exports = {
-    entry: './src/server/server.ts',
+    entry: [
+        'webpack/hot/poll?1000',
+        './backend.js'
+    ],
     target: 'node',
     output: {
         path: path.join(__dirname, 'dist'),
@@ -22,9 +24,13 @@ module.exports = {
     externals: nodeModules,
     plugins: [
         new webpack.IgnorePlugin(/\.(css|less)$/),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.BannerPlugin('require("source-map-support").install();', { raw: true, entryOnly: false })
     ],
     devtool: 'sourcemap',
+    resolve: {
+        extensions: ["", ".ts", ".tsx", ".js"]
+    },
     module: {
         loaders: [{
             test: /\.tsx?$/,
