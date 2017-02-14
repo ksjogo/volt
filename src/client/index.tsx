@@ -11,9 +11,9 @@ const rootEl = document.getElementById("root");
 injectTapEventPlugin();
 
 ReactDOM.render(
-    <AppContainer>
-        <App game={gameState} />
-    </AppContainer>,
+        <AppContainer>
+            <App game={gameState} />
+        </AppContainer>,
     rootEl
 );
 

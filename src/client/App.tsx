@@ -22,8 +22,8 @@ export default class App extends React.Component<{
         return (
                 <MuiThemeProvider>
                 <div>
-                <AppBar title="Volt Game" />
-                <View2 game={this.props.game} />
+                    <AppBar title="Volt Game Again" />
+                    <View2 game={this.props.game} />
                 </div>
                 </MuiThemeProvider>
         );

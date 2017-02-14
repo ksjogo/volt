@@ -1,7 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 
-var cssvariables =  require("./src/style/variables");
+var cssvariables =  require("./src/client/style/variables");
 cssvariables["test"] =  "yellow";
 
 module.exports = {
@@ -9,11 +9,11 @@ module.exports = {
     entry: [
         "react-hot-loader/patch",
         "webpack-hot-middleware/client",
-        "./src/index"
+        "./src/client/index"
     ],
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "bundle.js",
+        filename: "client.js",
         publicPath: "/webpack/"
     },
     plugins: [
