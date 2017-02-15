@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "description": "Volt Game",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "postinstall": "rm -rf node_modules/@types/isomorphic-fetch"
     },
     "repository": {
         "type": "git",
@@ -32,12 +33,10 @@
         "css-loader": "^0.26.1",
         "express": "^4.13.4",
         "graphql-tag": "^1.2.4",
-        "gulp": "^3.9.1",
         "material-ui": "^0.16.7",
         "mobx": "^3.0.0",
         "mobx-react": "^4.0.4",
         "mobx-react-devtools": "^4.2.10",
-        "mobx-react-inject": "^0.0.2",
         "mobx-utils": "^2.0.1",
         "platformsh": "^0.0.2",
         "postcss": "^5.2.12",
@@ -53,7 +52,6 @@
         "react-hot-loader": "^3.0.0-beta.6",
         "react-tap-event-plugin": "^2.0.1",
         "react-three-renderer": "^3.0.2",
-        "reflect-metadata": "^0.1.9",
         "source-map-support": "^0.4.11",
         "style-loader": "^0.13.1",
         "three": "^0.82.1",

@@ -9,15 +9,11 @@ import DevTools from "mobx-react-devtools";
 
 import * as style from "./style/variables";
 
-import GameState from "./GameState";
+import Store from "./Store";
 import Robot from "./Robot";
 
-export interface Test2Props {
-    game: GameState
-}
-
 @observer
-export default class View2 extends React.Component<Test2Props, {}> {
+export default class View extends React.Component<{}, {}> {
 
     cameraPosition: THREE.Vector3;
 
@@ -28,7 +24,7 @@ export default class View2 extends React.Component<Test2Props, {}> {
     }
 
     onAnimate() {
-        this.props.game.tick();
+        Store.tick();
     }
 
     render() {
@@ -51,10 +47,10 @@ export default class View2 extends React.Component<Test2Props, {}> {
                         position={ this.cameraPosition }
                     />
 
-                    <Robot game={this.props.game}/>
+                    <Robot />
 
                     <mesh
-                        rotation = { this.props.game.cubeRotation}
+                        rotation = { Store.cubeRotation}
                     >
                         <circleGeometry
                             width={0.5}

@@ -1,11 +1,9 @@
 import {observable} from "mobx";
 import * as THREE from "three";
 
-export default class AppStore {
-    constructor (apolloClient) {
+class Store {
+    constructor () {
     }
-
-
 
     @observable cubeRotation = new THREE.Euler(0, 0, 0);
 
@@ -14,3 +12,7 @@ export default class AppStore {
             new THREE.Euler(this.cubeRotation.x + 0.1, this.cubeRotation.y + 0.1, this.cubeRotation.z + 0.1);
     }
 }
+
+const store = new Store();
+
+export default store;

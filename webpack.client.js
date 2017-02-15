@@ -22,7 +22,7 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
     ],
     resolve: {
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
+        extensions: ["", ".ts", ".tsx", ".js"]
     },
     module: {
         loaders: [{

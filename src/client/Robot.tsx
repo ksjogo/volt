@@ -1,15 +1,14 @@
 import * as React from "react";
-import GameState from "./GameState";
+import Store from "./Store";
 import {observer} from "mobx-react";
 
 @observer
 export default class Robot extends React.Component<{
-    game: GameState
 }, {}> {
     render() {
         return <mesh
-                   rotation={this.props.game.cubeRotation}
-        >
+                   rotation={Store.cubeRotation}
+               >
             <boxGeometry
                 width={ 2 }
                 height = { 2}

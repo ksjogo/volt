@@ -12,5 +12,9 @@
         "paths": {
             "react-three-renderer": ["node_modules/react-three-renderer"]
         }
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
 }
